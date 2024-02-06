@@ -1,0 +1,21 @@
+.text {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.textDiv {
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.contactBox {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    margin-left: 70px;
+    width: 70px;
+    height: 20px;
+}

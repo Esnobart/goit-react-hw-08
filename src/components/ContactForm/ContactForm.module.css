@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    width: 200px;
+}
+
+.submit {
+    width: 100px;
+}
+
+.error {
+    color: red;
+}
