@@ -1,18 +1,13 @@
 import { useId } from "react";
 import css from './SearchBox.module.css';
 
-export const SearchBox = ({ val, funct}) => {
+export const SearchBox = ({ searchValue, onSearchChange}) => {
     const filter = useId();
 
-    const resetInfo = evt => {
-        evt.preventDefault();
-        evt.target.reset();
-    }
-
     return (
-            <form onSubmit={resetInfo}>
+            <form>
                 <label htmlFor={filter} className={css.form}>Find contacts by name
-                    <input type="text" id={filter} value={val} onChange={evt => funct(evt.target.value)} className={css.input}></input>
+                    <input type="text" id={filter} value={searchValue} onChange={evt => onSearchChange(evt.target.value)} className={css.input}></input>
                 </label>
             </form>
     )
