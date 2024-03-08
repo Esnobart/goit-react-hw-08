@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,8 @@ export const ContactForm = () => {
             initialValues={{ name: '', number: '' }}
             validationSchema={validation}
             onSubmit={(values, actions) => { 
-                dispatch(addContact({ id: Date.now(), ...values }));
+                const id = uuidv4();
+                dispatch(addContact({ ...values, id: id }));
                 actions.resetForm();
             }}>
             <Form autoComplete='off' className={css.form}>
