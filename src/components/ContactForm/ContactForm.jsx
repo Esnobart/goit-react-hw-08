@@ -3,7 +3,7 @@ import { useId } from "react";
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/operation';
 import { v4 as uuidv4 } from 'uuid';
 
 export const ContactForm = () => {

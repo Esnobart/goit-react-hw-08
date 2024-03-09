@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux'
 import contact from '../svg/contact.svg'
 import phone from '../svg/phone.svg'
 import css from './Contact.module.css'
-import { deleteContact } from '../../redux/contactsSlice'
+import { deleteContact } from '../../redux/operation'
 
 export const Contact = ({ user }) => {
     const dispatch = useDispatch();

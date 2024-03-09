@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux";
 import { Contact } from "../Contact/Contact";
 import css from './ContactList.module.css';
+import { selectLoading, selectVisibleContacts } from "../../redux/selectors";
+import { useSelector } from "react-redux";
 
 export const ContactList = () => {
-    const { items, loading } = useSelector(state => state.contacts)
-    const searchValue = useSelector(state => state.filters.name)
-
-    const visible = items.filter(contact => contact.name.toLowerCase().includes(searchValue.toLowerCase()));
+    const loading = useSelector(selectLoading)
+    const visible = useSelector(selectVisibleContacts)
     return (
         <div>
             {loading && <p>Loading...</p>}
