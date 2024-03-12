@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, lazy, Suspense } from "react";
 import { currentUser } from "../../redux/operation";
 import { Routes, Route } from "react-router-dom";
@@ -7,10 +7,13 @@ import { PrivateRoute } from "../Routes/PrivateRoute";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "../../redux/hooks";
 import { Layout } from "../Layout/Layout";
+import { selectModalOpen } from "../../redux/selectors";
+import { ContactModal } from "../ContactModal/ContactModal";
 
 const App = () => {
     const dispatch = useDispatch();
     const { isRefreshing } = useAuth();
+    const modal = useSelector(selectModalOpen);
 
     const ContactsPage = lazy(() => import('../../pages/Contacts/Contacts'));
     const RegisterPage = lazy(() => import('../../pages/RegisterPage/RegisterPage'));
@@ -32,6 +35,7 @@ const App = () => {
                 </Route>
             </Routes>
         </Suspense>
+        {modal && <ContactModal />}
         <Toaster />
     </> )}
 

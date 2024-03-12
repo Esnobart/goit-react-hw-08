@@ -15,6 +15,15 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 export const selectVisibleContacts = createSelector(
     [selectContacts, selectFilter],
     (contacts, filter) => {
+        const hasLetters = /[a-zA-Z]/.test(filter);
+        const hasDigits = /\d/.test(filter);
+        if ((hasLetters && hasDigits) || hasDigits) {
+            return contacts.filter(contact => contact.number.includes(filter));
+        }
         return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
     }
 );
+
+export const selectModalOpen = state => state.contact.modalOpen;
+
+export const selectContact = state => state.contact.contact;

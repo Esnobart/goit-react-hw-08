@@ -1,16 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../redux/hooks';
+import css from './Header.module.css'
 
 export const Header = () => {
   const { isLoggedIn } = useAuth();
 
   return (
-    <nav>
-      <NavLink to="/">
+    <nav className={css.navi}>
+      <NavLink to="/" className={css.links}>
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink to="/contacts">
+        <NavLink to="/contacts" className={css.links}>
           Contacts
         </NavLink>
       )}

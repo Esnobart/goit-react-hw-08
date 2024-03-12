@@ -5,6 +5,7 @@ import css from './ContactForm.module.css';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../../redux/operation';
 import { v4 as uuidv4 } from 'uuid';
+import toast from 'react-hot-toast';
 
 export const ContactForm = () => {
     const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export const ContactForm = () => {
                 const id = uuidv4();
                 dispatch(addContact({ ...values, id: id }));
                 actions.resetForm();
+                toast(`${values.name} added successfully`)
             }}>
             <Form autoComplete='off' className={css.form}>
                 <label htmlFor={contactName}>Name
