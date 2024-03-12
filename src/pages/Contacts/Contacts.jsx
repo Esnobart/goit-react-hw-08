@@ -6,7 +6,7 @@ import { logOut } from "../../redux/operation";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/operation";
 
-export const Contacts = () => {
+export default function Contacts() {
     const dispatch = useDispatch();
 
     useEffect(() => {

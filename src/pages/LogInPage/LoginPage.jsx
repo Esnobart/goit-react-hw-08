@@ -5,7 +5,7 @@ import { logIn } from "../../redux/operation";
 import { useId } from "react";
 import toast from "react-hot-toast";
 
-export const LoginPage = () => {
+export default function LoginPage() {
     const dispatch = useDispatch();
     const userEmail = useId();
     const Password = useId();

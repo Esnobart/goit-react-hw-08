@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { register } from "../../redux/operation";
 import { useId } from "react";
 
-export const RegisterPage = () => {
+export default function RegisterPage() {
     const dispatch = useDispatch();
     const userName = useId();
     const userEmail = useId();
