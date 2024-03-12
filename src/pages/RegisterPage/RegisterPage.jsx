@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { register } from "../../redux/operation";
 import { useId } from "react";
 import * as Yup from 'yup';
+import css from './RegisterPage.module.css'
 
 export default function RegisterPage() {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function RegisterPage() {
                 actions.resetForm();
             }}
         >
-            <Form autoComplete='off'>
+            <Form autoComplete='off' className={css.registform}>
                 <label htmlFor={userName}>Username
                     <Field type="text" name="name" id={userName} />
                 </label>
@@ -36,7 +37,7 @@ export default function RegisterPage() {
                 <label htmlFor={Password}>Password
                     <Field type="password" name="password" id={Password} />
                 </label>
-                <button type="submit">Register</button>
+                <button type="submit" className={css.registbtn}>Register</button>
             </Form>
         </Formik>
     )
