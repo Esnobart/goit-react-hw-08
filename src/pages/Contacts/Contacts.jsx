@@ -1,8 +1,7 @@
-import { ContactForm } from "../ContactForm/ContactForm"
-import { SearchBox } from "../SearchBox/SearchBox";
-import { ContactList } from "../ContactList/ContactList";
+import { ContactForm } from "../../components/ContactForm/ContactForm"
+import { SearchBox } from "../../components/SearchBox/SearchBox";
+import { ContactList } from "../../components/ContactList/ContactList";
 import { useDispatch } from "react-redux";
-import { logOut } from "../../redux/operation";
 import { useEffect } from "react";
 import { fetchContacts } from "../../redux/operation";
 
@@ -15,7 +14,7 @@ export default function Contacts() {
 
     return (
         <div>
-            <h1>Phonebook</h1><button type="button" onClick={() => dispatch(logOut())}></button>
+            <h1>Phonebook</h1>
             <ContactForm />
             <SearchBox />
             <ContactList />

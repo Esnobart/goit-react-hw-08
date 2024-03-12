@@ -1,6 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
 import { logIn } from "../../redux/operation";
 import { useId } from "react";
 import toast from "react-hot-toast";
@@ -13,15 +12,14 @@ export default function LoginPage() {
         <Formik
             initialValues={{ email: '', password: '' }}
             onSubmit={(values, actions) => { 
-                const id = uuidv4();
-                dispatch(logIn({ id: id, ...values }))
+                dispatch(logIn({ ...values }))
                     .unwrap()
                     .then(() => {
                         toast(`Welcome back, ${values.email}`)
                     })
                     .catch(() => {
-                    toast.error('Email or password is incorrect, try again')
-                })
+                        toast.error('Email or password is incorrect, try again')
+                    })
                 actions.resetForm();
             }}
         >
